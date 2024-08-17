@@ -1,0 +1,11 @@
+{% if post_list %}
+    <ul>
+        {% for post in post_list %}
+        <li><a href="{% url 'blog:view_post' post.id %}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>포스트 없음.</p>
+{% endif %}
+<br/>
+<a href="{% url 'blog:create_post' %}">포스트 작성하기</a>

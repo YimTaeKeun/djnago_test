@@ -1,0 +1,18 @@
+<h1>{{ blog_post.title }}</h1>
+<br/>
+<p>{{ blog_post.content }}</p>
+<br/>
+<h1>{{ blog_post.comment_set.count }}개의 댓글이 있습니다.</h1>
+{% for comment in blog_post.comment_set.all %}
+    <div style="display: flex">
+        <h1>{{ comment.content }}</h1>
+        <h3> 시각: {{ comment.created_date }}</h3>
+    </div>
+{% endfor %}
+<form action="{% url 'blog:submit_comment' blog_post.id %}" method="post">
+    {% csrf_token %}
+    <label for="content">댓글</label>
+{#    form의 label은 name을 따라간다. #}
+    <textarea id="content" name="content"></textarea>
+    <button type="submit">댓글쓰기</button>
+</form>
