@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'review.apps.ReviewConfig',
     'APINetwork.apps.ApinetworkConfig',
     'blog.apps.BlogConfig',
     'pybo.apps.PyboConfig',
